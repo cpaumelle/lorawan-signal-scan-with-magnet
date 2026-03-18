@@ -16,12 +16,26 @@ See **[microshare-native/README.md](microshare-native/README.md)** for step-by-s
 
 ### Option B: Self-hosted
 
-A React PWA (`app/`) backed by a Python FastAPI CORS proxy (`proxy/`). Use this if you want to self-host outside the Microshare platform, customise the UI, or integrate with your own backend.
+A React PWA (`app/`) backed by a Python FastAPI CORS proxy (`proxy/`).
 
-- **Proxy**: [`proxy/`](proxy/) — FastAPI server that handles Microshare authentication and proxies API calls (bypasses browser CORS restrictions)
-- **App**: [`app/`](app/) — React + Vite + Tailwind PWA; run `npm install && npm run dev` to start locally
+> **Important:** This is still fully Microshare-dependent. The self-hosted app connects to the Microshare API for all data — you still need a valid Microshare account, a configured Device Cluster, and enrolled Browan TBDW100 sensors (exactly as described in [Microshare Prerequisites](#microshare-prerequisites--device-cluster-setup) above). The only difference is that the app UI runs on your own infrastructure instead of inside Composer.
+
+- **Proxy**: [`proxy/`](proxy/) — FastAPI server that handles Microshare authentication and proxies API calls to bypass browser CORS restrictions. Must be running and reachable by the app.
+- **App**: [`app/`](app/) — React + Vite + Tailwind PWA; run `npm install && npm run dev` to start locally.
 
 The proxy must be running at `http://localhost:8001` (or configure `vite.config.js` to proxy `/proxy` to your deployment URL).
+
+#### What the self-hosted version adds over Microshare-native
+
+| Feature | Self-hosted | Microshare-native |
+|---|---|---|
+| **QR scanner** — scan the LoRa Alliance QR code on the sensor to auto-fill DevEUI | Yes | No |
+| **Installable PWA** — add to phone home screen, launches like a native app | Yes | No |
+| **Offline app shell** — app loads even with intermittent connectivity (Workbox cache) | Yes | No |
+| **Session persistence** — survey data survives page refresh (IndexedDB) | Yes | No (in-memory only) |
+| **Battery level display** — colour-coded battery bar in device picker | Yes | No |
+| **Runs on your own domain** — no dependency on composer.microshare.io availability | Yes | No |
+| **Easier to extend** — full React component/hook/service structure, npm ecosystem, hot reload | Yes | No |
 
 ---
 
