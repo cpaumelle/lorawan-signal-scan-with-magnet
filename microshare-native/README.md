@@ -123,6 +123,8 @@ The App binds the Form and configuration (Facts) together, and generates the URL
 | `bandThresholds` | RSSI (ESP) thresholds in dBm for each band. Adjust to match your deployment requirements |
 | `locationLabels` | **Customise this for every deployment.** These appear as one-tap tag buttons on the survey screen so the technician can label each reading with a zone (e.g. "Floor 3", "Plant room"). Replace the default list with the actual areas of the building being surveyed — e.g. `["Reception", "Server room", "Floor 1 East", "Floor 1 West", "Roof terrace"]`. There is no limit on the number of labels. If omitted entirely, the location tag buttons will not appear. |
 
+![App Facts configuration in Microshare Composer showing the Facts JSON editor with locationLabels and bandThresholds](app-facts-setup.png)
+
 7. Click **Save**
 8. Open the App URL shown in the Composer App details panel
 
