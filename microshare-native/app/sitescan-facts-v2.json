@@ -1,0 +1,28 @@
+{
+  "appTitle":         "SiteScan v2 — Gateway Survey",
+  "environment":      "dev",
+  "apiHost":          "https://dapi.microshare.io",
+  "rawUplinkRecType": "io.microshare.openclose.unpacked",
+  "checkinRecType":   "io.microshare.sitescan.checkin",
+  "sessionRecType":   "io.microshare.sitescan.session",
+  "pollIntervalMs":   8000,
+  "checkInWindowMs":  15000,
+  "bandThresholds": {
+    "strong":   -95,
+    "medium":  -105,
+    "low":     -115
+  },
+  "locationLabels": [
+    "Basement",
+    "Ground floor",
+    "Floor 1",
+    "Floor 2",
+    "Floor 3",
+    "Floor 4",
+    "Floor 5",
+    "Stairwell",
+    "Lift lobby",
+    "Plant room",
+    "External"
+  ]
+}

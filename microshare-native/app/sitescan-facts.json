@@ -1,0 +1,10 @@
+{
+  "appTitle":          "SiteScan — Gateway Survey",
+  "environment":       "dev",
+  "apiHost":           "https://dapi.microshare.io",
+  "rawUplinkRecType":  "io.microshare.openclose.unpacked",
+  "checkinRecType":    "io.microshare.sitescan.checkin",
+  "sessionRecType":    "io.microshare.sitescan.session",
+  "pollIntervalMs":    8000,
+  "checkInWindowMs":   15000
+}

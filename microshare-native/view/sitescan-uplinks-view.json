@@ -1,0 +1,25 @@
+[
+  {
+    "$match": {
+      "recType": "io.microshare.sitescan.decoded",
+      "data.devEui": "${devEui}",
+      "data.timestamp": { "$gt": "${since}" }
+    }
+  },
+  { "$sort": { "data.timestamp": -1 } },
+  { "$limit": "${limit}" },
+  {
+    "$project": {
+      "devEui":       "$data.devEui",
+      "rssi":         "$data.rssi",
+      "snr":          "$data.snr",
+      "sf":           "$data.sf",
+      "band":         "$data.band",
+      "esp":          "$data.esp",
+      "timestamp":    "$data.timestamp",
+      "fcntUp":       "$data.fcntUp",
+      "gatewayId":    "$data.gatewayId",
+      "gatewayCount": "$data.gatewayCount"
+    }
+  }
+]
