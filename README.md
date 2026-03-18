@@ -16,7 +16,7 @@ See **[microshare-native/README.md](microshare-native/README.md)** for step-by-s
 
 ### Option B: Self-hosted
 
-A React PWA (`app/`) backed by a Python FastAPI CORS proxy (`proxy/`).
+A React PWA (`app/`) backed by a Python FastAPI CORS proxy (`proxy/`). "Self-hosted" means you run the app on your own computer, server, or VM (anything that can run Python and serve a web page) rather than inside the Microshare platform — useful if you want full control over the UI or need to deploy on your own domain.
 
 > **Important:** This is still fully Microshare-dependent. The self-hosted app connects to the Microshare API for all data — you still need a valid Microshare account, a configured Device Cluster, and enrolled Browan TBDW100 sensors (exactly as described in [Microshare Prerequisites](#microshare-prerequisites--device-cluster-setup) above). The only difference is that the app UI runs on your own infrastructure instead of inside Composer.
 
