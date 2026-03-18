@@ -1,4 +1,6 @@
-# SiteScan — LoRaWAN Signal Survey App
+# SiteScan — LoRaWAN Signal Survey App (Alpha)
+
+> **⚠️ Alpha Release** — This is a very initial version of SiteScan. It is functional but rough around the edges. I'm actively looking for feedback on bugs, usability issues, and ideas for further enhancement. If you try it, please [open an issue](https://github.com/cpaumelle/lorawan-signal-scan-with-magnet/issues) or get in touch — all input is welcome.
 
 SiteScan is a mobile progressive web app (PWA) for field technicians to survey LoRaWAN coverage using a Browan Tabs TBDW100 Hall-effect door/window sensor. The technician walks a building, triggers the sensor at each survey point (by passing a magnet near it), taps **Check In** on the app, and SiteScan captures the resulting uplink's RSSI, SNR, spreading factor, and gateway count — classifying the signal into a STRONG / MEDIUM / LOW / NO_SIGNAL band with haptic and audio feedback. At the end of the survey, the app shows a coverage summary and exports the readings as CSV or JSON for reporting.
 
