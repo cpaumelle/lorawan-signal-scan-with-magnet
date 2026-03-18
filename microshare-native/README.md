@@ -47,23 +47,7 @@ You can also verify by querying `https://dapi.microshare.io/share/io.microshare.
 
 ---
 
-## Step 2 — Create the View (v1 only — skip for v2)
-
-> **If you are using the v2 form (`sitescan-form-v2.html`), skip this step.** The v2 form polls raw uplinks directly and does not require a View.
-
-The View is a MongoDB pipeline that lets the form query decoded records by DevEUI.
-
-1. Go to **composer.microshare.io → Views → Create New**
-2. **Name**: `SiteScan Uplinks View`
-3. **recType**: `io.microshare.sitescan.decoded`
-4. **Type**: Pipeline Query
-5. Paste the contents of [`view/sitescan-uplinks-view.json`](view/sitescan-uplinks-view.json) into the **Pipeline** field
-6. Click **Save**
-7. Note the View ID (shown in the URL or details panel) — you will need it in the App Facts
-
----
-
-## Step 3 — Create the Form
+## Step 2 — Create the Form
 
 The Form is the actual mobile app UI — a self-contained HTML file.
 
@@ -78,7 +62,7 @@ The Form is the actual mobile app UI — a self-contained HTML file.
 
 ---
 
-## Step 4 — Create the App
+## Step 3 — Create the App
 
 The App binds the Form and configuration (Facts) together, and generates the URL you share with field technicians.
 
