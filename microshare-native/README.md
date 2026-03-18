@@ -11,7 +11,6 @@ SiteScan uses four Composer artifacts that work together:
 | Artifact | File | What it does |
 |----------|------|--------------|
 | **Robot** | `robot/sitescan-decode-robot.js` | Listens for raw uplinks (`io.microshare.openclose.unpacked`), extracts signal metrics, and writes a clean `io.microshare.sitescan.decoded` record with RSSI, SNR, ESP, band, gateway info, etc. |
-| **View** | `view/sitescan-uplinks-view.json` | A MongoDB aggregation pipeline that queries decoded records by DevEUI and time window — used internally by the v1 form (not required for v2) |
 | **Form** | `form/sitescan-form-v2.html` | The app UI — a single HTML file that runs inside the Composer App container. Contains all JavaScript, CSS, and logic; no external dependencies. |
 | **App** | `app/sitescan-facts-v2.json` | The Composer App object that binds the Form + Facts (configuration) together and generates the shareable app URL |
 
@@ -19,7 +18,7 @@ SiteScan uses four Composer artifacts that work together:
 
 ## Prerequisites
 
-- Access to [composer.microshare.io](https://composer.microshare.io) with an account that has **Robot**, **View**, **Form**, and **App** creation rights
+- Access to [composer.microshare.io](https://composer.microshare.io) with an account that has **Robot**, **Form**, and **App** creation rights
 - At least one **Browan Tabs TBDW100** sensor enrolled in a Microshare Device Cluster with recType `io.microshare.openclose.unpacked`
 - The sensor must be within LoRaWAN range of a gateway and sending uplinks
 
@@ -170,7 +169,7 @@ If the app shows authentication or permission errors, create Rules in Composer:
 ## Promoting to Production
 
 When development testing is complete:
-1. Recreate all objects (Robot, View if used, Form, App) on [composer.microshare.io](https://composer.microshare.io) (not dcomposer)
+1. Recreate all objects (Robot, Form, App) on [composer.microshare.io](https://composer.microshare.io) (not dcomposer)
 2. Update the App Facts:
    ```json
    "environment": "prod",

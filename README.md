@@ -96,7 +96,7 @@ lorawan-signal-scan-with-magnet/
 │   ├── robot/
 │   │   └── sitescan-decode-robot.js   — Robot script: decodes uplinks → sitescan.decoded
 │   ├── view/
-│   │   └── sitescan-uplinks-view.json — MongoDB pipeline: query decoded records by DevEUI
+│   │   └── sitescan-uplinks-view.json — MongoDB pipeline (v1 reference only — not needed for v2)
 │   ├── form/
 │   │   ├── sitescan-form.html         — v1 form (single-file app UI)
 │   │   └── sitescan-form-v2.html      — v2 form (recommended — location tags, ESP display)
