@@ -29,7 +29,31 @@ The proxy must be running at `http://localhost:8001` (or configure `vite.config.
 
 - **Browan Tabs TBDW100** — Hall-effect LoRaWAN door/window sensor. Triggered by waving the included magnet near the sensor body, which generates an uplink immediately without waiting for the configured report interval.
 - Any LoRaWAN gateway compatible with Microshare (e.g. Kerlink, Tektelic, Dragino) within range.
-- The sensor must be enrolled in a **Microshare Device Cluster** with recType `io.microshare.openclose.unpacked`. This is the standard Microshare recType for Browan TBDW100 devices.
+
+---
+
+## Microshare Prerequisites — Device Cluster Setup
+
+**SiteScan will not work without this.** Before deploying the app, you must have at least one **Device Cluster** in your Microshare account configured for the Browan Tabs TBDW100, with at least one sensor registered to it.
+
+### What to configure
+
+In Composer, go to **Device Clusters** and create (or verify you have) a cluster with these exact settings:
+
+| Field | Value |
+|---|---|
+| **Device Type** | Tabs Home Security TBDW100 |
+| **Use Case** | SM04 - Open/Shut Indicator |
+| **Source Record Type** | `io.microshare.openclose.packed` |
+| **Target Record Type** | `io.microshare.openclose.unpacked` |
+| **Device Payload Unpacker** | `io.tracknet.security.TBDW100.Decoder` |
+| **Network Provider** | Your LoRaWAN network (e.g. Actility ThingPark) |
+
+The **Target Record Type** (`io.microshare.openclose.unpacked`) is what SiteScan queries — this must match exactly.
+
+![Device Cluster configuration in Microshare Composer](microshare-native/device-cluster-setup.png)
+
+At least one Browan Tabs TBDW100 sensor must be registered in this cluster and within range of a LoRaWAN gateway before you start a survey.
 
 ---
 
