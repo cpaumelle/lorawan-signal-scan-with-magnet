@@ -871,13 +871,9 @@ async function poll() {
   if (!C.token || !state.devEui) return;
   const since           = state.lastPollTime;
   const devEuiEncoded   = encodeURIComponent(state.devEui);
-  // NOTE: filter key brackets must NOT be percent-encoded — Microshare requires literal []
-  // NOTE: 10s overlap on since window — seenIds deduplicates; prevents missing records
-  //       that arrive with slight Microshare processing lag after lastPollTime advances
   const url = `${C.apiHost}/share/${C.rawRT}`
     + `?details=true`
-    + `&filter[data.meta.iot.device_id]=${devEuiEncoded}`
-    + `&limit=25`
+    + `&${encodeURIComponent('filter[data.meta.iot.device_id]')}=${devEuiEncoded}`
     + `&since=${encodeURIComponent(since)}`;
   try {
     const res = await fetch(url, {
@@ -886,9 +882,7 @@ async function poll() {
     setPollDot(res.ok);
     if (!res.ok) return;
     const data = await res.json();
-    // Advance window with 10s overlap so records with Microshare ingestion lag
-    // are still caught; seenIds Set prevents double-processing
-    state.lastPollTime = new Date(Date.now() - 10000).toISOString();
+    state.lastPollTime = new Date().toISOString();
     const records = (data.objs || []).reverse(); // oldest first
     for (const rec of records) {
       onUplink(rec);

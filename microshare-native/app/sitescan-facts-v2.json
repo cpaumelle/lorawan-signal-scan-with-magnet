@@ -8,9 +8,9 @@
   "pollIntervalMs":   8000,
   "checkInWindowMs":  15000,
   "bandThresholds": {
-    "strong":   -95,
-    "medium":  -105,
-    "low":     -115
+    "LOW":     -115,
+    "MEDIUM":  -105,
+    "STRONG":  -95
   },
   "locationLabels": [
     "Basement",
